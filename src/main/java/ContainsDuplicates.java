@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.*;
 
 public class ContainsDuplicates {
     /**
@@ -10,22 +11,24 @@ public class ContainsDuplicates {
      */
     public boolean containsDuplicate(int[] nums){
         Boolean value = false;
-        int k = nums.length;
-        Set<Integer> set = new HashSet<>(k);
-    
-         for(int i = 0; i < k; i++) {
-            set.add(nums[i]);
-         }
-         for(int i = 0; i < k; i++) {
-          
-            if (set.contains(nums[i])){
-                
-                value = true;
-                break;
+       
+           int k = nums.length;
+           Set<Integer> set = new HashSet<Integer>(k);
+       
+            for(int i = 0; i < k; i++) {
+               value = set.add(nums[i]);
+              
             }
-         }
-        value = false;
-        return value;
+            int k1 = set.size();
+            if (k !=k1) {
+                value = true;
+                return value;
+            }
+            if (k==k1) {
+                value = false;
+                return value;
+            }
+           return value;
     
 }
 }
